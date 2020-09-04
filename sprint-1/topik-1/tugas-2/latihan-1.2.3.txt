@@ -1,0 +1,2 @@
+which adalah perintah yang berguna untuk mencari tahu salinan perintah yang saat ini di gunakan atau yang ada di Terminal.
+jadi, karena itulah ketika mengetikkan perintah "which php" akan memunculkan "usr/bin/php (letak php itu berada).

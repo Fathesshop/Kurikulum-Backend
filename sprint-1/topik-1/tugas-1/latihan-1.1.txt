@@ -1,0 +1,20 @@
+Jika        ("Komputer Sudah Menyala )
+
+Setelah itu ("Jalankan Microsoft Word");
+
+Lakukan     (" Yang ingin Dikerjakan ");
+
+Lakukan     (" Dengan Keyboard Yang sudah ada");
+
+     selesai;
+
+
+
+
+Jika      (" Yang di kerjakan sudah selesai ");
+
+Setelah itu (" Pencet Ctrl + S ");
+
+Lakukan     (" Beri nama Latihan.docx dan Pencet save ");
+
+     selesai;
