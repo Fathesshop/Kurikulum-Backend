@@ -1,0 +1,13 @@
+ 
+1. var_dump(true && false);
+hasil output bool(false) karena (&&) harus memiliki nilai yg sama, jika berbeda maka hasilnya salah (false).
+
+2. var_dump(true || false);
+Penjelasan 
+hasil output bool(true) karena (||) memberikan nilai benar (true) jika salah satunya merupakan nilai true.
+
+3.var_dump(false || false);
+hasil output false karena dua duanya false
+
+var_dump(!false);
+hasil output true karena ! untuk berlawanan atau kebalikannya.

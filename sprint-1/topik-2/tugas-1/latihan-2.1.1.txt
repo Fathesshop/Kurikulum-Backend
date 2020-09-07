@@ -1,0 +1,12 @@
+var_dump($d + $e);
+hasil output kedua variabel ditambahkan
+var_dump($e == $f);
+hasil output true karena $e sama dengan $f
+var_dump($e === $f);
+hasil output false karena $e beda dengan $f
+var_dump($g);
+hasil output NULL karena $g = null
+var_dump((bool)$g);
+hasil output bool (false) karena null
+var_dump((int)$g);
+hasil output int (0) karena null
