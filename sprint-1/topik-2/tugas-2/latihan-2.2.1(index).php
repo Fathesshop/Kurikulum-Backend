@@ -1,3 +1,5 @@
+ 
+<h1>Menghitung luas persegi</h1>
 <form method="get" action="latihan-2.2.1.php">
 	<label>Masukkan panjang persegi</label><br/>
 	<input type="text" name="panjang_persegi"><br/>
