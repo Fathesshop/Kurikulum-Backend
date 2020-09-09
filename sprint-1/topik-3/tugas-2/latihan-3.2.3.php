@@ -1,21 +1,18 @@
 <?php
 $n = 9;
-for ($p = 0; $p < $n; $p++)
+for ($i = 1; $i <= $n; $i++)
 {
-    for ($m = 0; $m < $n; $m++)
+    for ($j = 1; $j <= $n; $j++)
     {
-        if (($p + $m) <= 8 and $p <= $m)
+        if ($i + $j <= 10 && $i <= $j || $i + $j >= 10 && $i >= $j)
         {
-            echo "+ ";
-        }
-        else if (($p + $m) <= 16 and ($p + $m) > 7 and $p >= $m)
-        {
-            echo "+ ";
+            echo "+";
         }
         else
         {
-            echo "&nbsp- ";
+            echo "&nbsp-";
         }
+        echo " ";
     }
     echo "<br/>";
 }

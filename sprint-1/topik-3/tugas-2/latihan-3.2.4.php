@@ -1,25 +1,18 @@
 <?php
 $n = 9;
-for ($p = 0; $p < $n; $p++)
+for ($i = 1; $i <= $n; $i++)
 {
-    for ($m = 0; $m < $n; $m++)
+    for ($j = 1; $j <= $n; $j++)
     {
-        if ($p == 0 or $p == 4 or $p == 8)
+        if ($i == 1 || $i == 5 || $i == 9 || $j == 1 && $j + $i <= 6 || $j == 9 && $j + $i >= 14 )
         {
-            echo "+ ";
-        }
-        else if ($p <= 3 and $m == 0)
-        {
-            echo "+ ";
-        }
-        else if ($p >= 5 and $m == 8)
-        {
-            echo "+ ";
+            echo "+";
         }
         else
         {
-            echo "&nbsp- ";
+            echo "&nbsp-";
         }
+        echo " ";
     }
     echo "<br/>";
 }

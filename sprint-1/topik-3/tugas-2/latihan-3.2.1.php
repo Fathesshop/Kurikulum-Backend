@@ -1,14 +1,18 @@
 <?php
 $n = 9;
-for ($t = 1; $t <= $n; $t++)
+for ($i = 1; $i <= $n; $i++)
 {
-    for ($p = 1; $p <= $t; $p++)
+    for ($j = 1; $j <= $n; $j++)
     {
-        echo "+";
+        if ($i >= $j)
+        {
+            echo "+";
+        }
+        else
+        {
+            echo "&nbsp-";
+        }
+        echo " ";
     }
-    for ($m = $n; $m >= $p; $m--)
-    {
-        echo "&nbsp-";
-    }
-    echo "<br>";
+    echo "<br/>";
 }
