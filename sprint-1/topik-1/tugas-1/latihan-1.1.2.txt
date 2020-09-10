@@ -1,0 +1,13 @@
+JIKA jumlah_santri _programmer > melebihi_kapasitas
+MAKA jumlah santri dibagi perdivisi =
+     TAMPILKAN : 1. Mobile, 2. Frontend, 3. Backend
+LAINNYA
+      TAMPILKAN : santri cukup dan sudah dibagi
+AKHIR JIKA
+
+KETIKA jumlah_santri_backend < kekurangan_kapasitas
+    TAMBAHKAN santri dari divisi frontend
+AKHIR-KETIKA
+
+UNTUK semua santri
+    TAMBAHKAN laptop ke dalam perlengkapan
