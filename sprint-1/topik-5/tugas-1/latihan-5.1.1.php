@@ -1,13 +1,11 @@
 <?php
-// luas persegi
-function calcRectangleArea($lenght, $width)
+function calcRectangleArea($lenght, $width):int
 {
-    $luas_persegi = $lenght * $width;
-    return $luas_persegi;
+    return $lenght * $width;
 }
 
 echo "masukkan panjang persegi : ";
-$lenght = (int) trim(fgets(STDIN));
+$lenght = trim(fgets(STDIN));
 echo "masukkan lebar persegi : ";
-$width = (int) trim(fgets(STDIN));
+$width = trim(fgets(STDIN));
 echo "luas persegi : ". calcRectangleArea($lenght, $width) ."\n";

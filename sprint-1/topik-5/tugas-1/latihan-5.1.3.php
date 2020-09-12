@@ -1,18 +1,18 @@
 <?php
-function calcRectangleArea($larik)
+function calcRectangleArea($larik):int
 {
-    $nilai_larik = ($larik) * 3;
+    foreach($larik as $key => $value)
+    {
+    $larik[$key]*=3;
+    }
     return $larik;
 }
-
-echo "masukkan jumlah larik : ";
+echo "masukkan jumlah angka : ";
 $jumlah = trim(fgets(STDIN));
-for ($i = 0; $i < $jumlah; $i++)
-
+for($i=1; $i<=$jumlah; $i++)
 {
-    echo "masukkan angka larik yang mau diubah : ";
-    $larik[] = trim(fgets(STDIN));
-}
-print_r($larik);
-
-echo "hasil perubahan larik : ". array($larik)."\n";
+    echo "masukkan angka ke-".$i." : ";
+    $angka[] = trim(fgets(STDIN));
+}   
+print_r($angka);
+print_r(calcRectangleArea($angka));
