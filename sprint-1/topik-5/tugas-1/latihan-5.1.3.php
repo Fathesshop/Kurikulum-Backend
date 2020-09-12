@@ -1,5 +1,5 @@
 <?php
-function calcRectangleArea($larik):int
+function calcRectangleArea($larik)
 {
     foreach($larik as $key => $value)
     {
@@ -14,5 +14,4 @@ for($i=1; $i<=$jumlah; $i++)
     echo "masukkan angka ke-".$i." : ";
     $angka[] = trim(fgets(STDIN));
 }   
-print_r($angka);
 print_r(calcRectangleArea($angka));
