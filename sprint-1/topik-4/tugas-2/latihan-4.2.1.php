@@ -37,23 +37,33 @@ $students = [
      'age' => 18,
  ],
 ];
-function sortname(array $students)
+function data(array $students)
 {
     foreach ($students as $key => $value)
     {
         $id[] = $value["id"];
-        asort ($id);
         $name[] = $value["name"];
-        asort ($name);
-        $division[] = $value["division"] == "PHP Backend";
-        asort ($division);
+        $division[] = $value["division"] == ("PHP Backend");
+        $age[] = $value["age"] < 25;
+        $umur_santri[] = $value["age"];
+        $mean_santri = array_sum($umur_santri) / count($umur_santri);
+        $santri_muda = min($umur_santri);
     }
-    array_multisort($id, SORT_ASC, $students);
+    echo "nomor induk kecil ke besar"."\n";
+    array_multisort($id, $students);
     print_r($id);
-    array_multisort($name, SORT_ASC, $students);
+    echo "nama kecil ke besar"."\n";
+    array_multisort($name, $students);
     print_r($name);
-    array_multisort($division, SORT_ASC, $students);
+    echo "minat 'PHP Backend'"."\n";
     print_r($division);
+    echo "usia kurang dari 25 tahun"."\n";
+    print_r($age);
+    echo "rata-rata usia santri"."\n";
+    print_r($mean_santri);
+    echo "\n";
+    echo "usia paling muda"."\n";
+    print_r($santri_muda);
 }
-sortname($students);
+data($students);
 echo "\n";
