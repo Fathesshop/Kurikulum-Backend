@@ -1,6 +1,10 @@
 <?php
-function selectionValue(string $collectionValue): int
-{
-    echo "$collectionValue";
+$input = 5956560159466056;
+$output = explode("0",$input);
+foreach ($output as $key => $value) {
+    $larik[] = str_split($output[$key]);
+    sort ($larik[$key]);
 }
-$selectionValue(5,9,5,6,5,6,0,1,5,9,4,6,6,0,5,6);
+$hasil = array_merge(...$larik);
+print_r($larik);
+print_r($hasil);
