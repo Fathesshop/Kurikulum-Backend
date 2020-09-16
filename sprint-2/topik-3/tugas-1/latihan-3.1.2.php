@@ -52,9 +52,22 @@ switch ($pilih) {
         $phi = 3.14;
         echo "masukkan jari-jari lingkaran : ";
         $jari_jari = trim(fgets(STDIN));
-        $hasillingkaran = new Lingkaran($phi,$jari_jari);
-        echo "Luas lingkaran adalah : " .Lingkaran::luaslingkaran(). "cm"."\n";
-        echo "keliling lingkaran adalah : " .Lingkaran::kelilinglingkaran(). "cm"."\n";
+        try {
+            if ($jari_jari <= 0) {
+                throw new ErrorDataNotValid("Angka tidak boleh 0 (NOL)!!!!"."\n"); 
+            } else {
+                $hasillingkaran = new Lingkaran($phi,$jari_jari);
+                echo "input benar ! Luas lingkaran adalah : " . Lingkaran::luaslingkaran() . "cm"."\n";
+                echo "input benar ! keliling lingkaran adalah : " . Lingkaran::kelilinglingkaran() . "cm"."\n";
+            }
+        } catch (ErrorDataNotValid $error)
+        {
+            echo $error->getMessage();
+            echo "Error pada ".__FILE__." baris ke : ". $error->getLine()."\n";
+        }
+        // $hasillingkaran = new Lingkaran($phi,$jari_jari);
+        // echo "Luas lingkaran adalah : " .Lingkaran::luaslingkaran(). "cm"."\n";
+        // echo "keliling lingkaran adalah : " .Lingkaran::kelilinglingkaran(). "cm"."\n";
         break;
     case 2:
         echo "masukkan alas atas trapesium : ";
@@ -63,10 +76,23 @@ switch ($pilih) {
         $alas_bawah = trim(fgets(STDIN));
         echo "masukkan tinggi trapesium : ";
         $tinggi = trim(fgets(STDIN));
-        $hasiltrapesium = new Trapesium($alas_atas,$alas_bawah,$tinggi);
-        echo "Luas lingkaran adalah : " .Trapesium::luastrapesium(). "cm"."\n";
+        try {
+            if ($alas_atas <= 0 || $alas_bawah <= 0 || $tinggi <= 0) {
+                throw new ErrorDataNotValid("Angka tidak boleh 0 (NOL)!!!!"."\n"); 
+            } else {
+                $hasiltrapesium = new Trapesium($alas_atas,$alas_bawah,$tinggi);
+                echo "input benar ! Luas trapesium adalah  : " . Trapesium::luastrapesium() . "cm"."\n";
+            }
+        } catch (ErrorDataNotValid $error)
+        {
+            echo $error->getMessage();
+            echo "Error pada ".__FILE__." baris ke : ". $error->getLine()."\n";
+        }
+        // $hasiltrapesium = new Trapesium($alas_atas,$alas_bawah,$tinggi);
+        // echo "Luas trapesium adalah : " .Trapesium::luastrapesium(). "cm"."\n";
         break;
     default:
         echo "pilihan anda tidak ada!!!"."\n";
         break;
 }
+class ErrorDataNotValid extends Exception{}
