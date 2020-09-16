@@ -54,13 +54,13 @@ switch ($pilih) {
         $jari_jari = trim(fgets(STDIN));
         try {
             if ($jari_jari <= 0) {
-                throw new ErrorDataNotValid("Angka tidak boleh 0 (NOL)!!!!"."\n"); 
+                throw new InputSalah("Angka tidak boleh 0 (NOL)!!!!"."\n"); 
             } else {
                 $hasillingkaran = new Lingkaran($phi,$jari_jari);
                 echo "input benar ! Luas lingkaran adalah : " . Lingkaran::luaslingkaran() . "cm"."\n";
                 echo "input benar ! keliling lingkaran adalah : " . Lingkaran::kelilinglingkaran() . "cm"."\n";
             }
-        } catch (ErrorDataNotValid $error)
+        } catch (InputSalah $error)
         {
             echo $error->getMessage();
             echo "Error pada ".__FILE__." baris ke : ". $error->getLine()."\n";
@@ -78,12 +78,12 @@ switch ($pilih) {
         $tinggi = trim(fgets(STDIN));
         try {
             if ($alas_atas <= 0 || $alas_bawah <= 0 || $tinggi <= 0) {
-                throw new ErrorDataNotValid("Angka tidak boleh 0 (NOL)!!!!"."\n"); 
+                throw new InputSalah("Angka tidak boleh 0 (NOL)!!!!"."\n"); 
             } else {
                 $hasiltrapesium = new Trapesium($alas_atas,$alas_bawah,$tinggi);
                 echo "input benar ! Luas trapesium adalah  : " . Trapesium::luastrapesium() . "cm"."\n";
             }
-        } catch (ErrorDataNotValid $error)
+        } catch (InputSalah $error)
         {
             echo $error->getMessage();
             echo "Error pada ".__FILE__." baris ke : ". $error->getLine()."\n";
@@ -95,4 +95,4 @@ switch ($pilih) {
         echo "pilihan anda tidak ada!!!"."\n";
         break;
 }
-class ErrorDataNotValid extends Exception{}
+class InputSalah extends Exception{}
