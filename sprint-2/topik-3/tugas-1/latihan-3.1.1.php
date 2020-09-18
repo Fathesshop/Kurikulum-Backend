@@ -27,15 +27,14 @@ $lebar = trim(fgets(STDIN));
 // echo "keliling persegi adalah : " .PersegiPanjang::kelilingPersegi(). "cm"."\n";
 try {
     if ($panjang <= 0 || $lebar <= 0) {
-        throw new InputSalah("Angka tidak boleh 0 (NOL)!!!"."\n"); 
+        throw new Exeption("Angka tidak boleh 0 (NOL)!!!"."\n"); 
     } else {
         $hasilpersegi = new PersegiPanjang($panjang, $lebar);
         echo "input benar ! Luas persegi adalah : " . PersegiPanjang::luasPersegi() . "cm"."\n";
         echo "input benar ! keliling persegi adalah : " . PersegiPanjang::kelilingPersegi() . "cm"."\n";
     }
-} catch (InputSalah $error)
+} catch (Exeption $error)
 {
     echo $error->getMessage();
     echo "Error pada ".__FILE__." baris ke : ". $error->getLine()."\n";
 }
-class InputSalah extends Exception{}
