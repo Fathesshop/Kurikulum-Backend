@@ -44,25 +44,12 @@
                     <td><?= $value["pengirim"]?></td>
                     <td><?= $value["asal"] ?></td>
                     <td><?= $value["tujuan"]?></td>
-                    <td><a class = "btn btn-primary" href="update_barang.php">Edit</a> <a class = "btn btn-danger" href="hapus_barang.php">Hapus</a></td>
+                    <td><a class = "btn btn-primary" href="update_barang.php?id=<?=$value["id"]?>">Edit</a> <a class = "btn btn-danger" href="barang.php?hapus=barang&id=<?=$value["id"]?>">Hapus</a></td>
                 </tr>
                 <?php } ?>
             </tbody>
         </table>
     </div>
-    <a href="input_barang.php">INPUT BARANG</a>
-
-
-    <!-- <nav>
-        <ul>
-            <li>
-                <a href="input_barang.php">INPUT BARANG</a>
-            </li>
-            <li>
-                <a href="hapus_barang.php">HAPUS BARANG</a>
-            </li>
-        </ul>
-    </nav> -->
-    
+    <a href="input_barang.php" class="btn btn-dark btn-lg btn-block">INPUT BARANG</a>
 </body>
 </html>

@@ -1,9 +1,14 @@
+<?php
+    if(!isset($_COOKIE["user"])) {
+        header("location: index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INPUT BARANG</title>
+    <title>SUCCES</title>
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
@@ -13,15 +18,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Menu Input Barang</h1>
-        <form action="barang.php" method="post">
-            <input type="text" name="nama_barang" id="nama_barang" placeholder="nama barang">
-            <input type="text" name="harga_barang" id="harga_barang" placeholder="harga barang">
-            <input type="text" name="nama_kurir" id="nama_kurir" placeholder="nama kurir">
-            <input type="text" name="nama_pengirim" id="nama_pengirim" placeholder="nama pengirim">
-            <input type="text" name="asal_barang" id="asal_barang" placeholder="asal barang">
-            <input type="text" name="tujuan_barang" id="tujuan_barang" placeholder="tujuan barang">
-            <input class="btn btn-dark" type="submit" name="submit" value="Input">
-    </form>
+    <div class="jumbotron">
+        <h1 class="display-4">SUCCES, LOGIN!</h1>
+        <p class="lead">Ini adalah halaman succes login dengan menggunakan cookie.</p>
+        <hr class="my-4">
+        <p>HASIL DARI PRINT_R COOKIE</p>
+        <p><?php print_r($_COOKIE);?></p>
+        <p class="lead">
+            <form action="check.php" method="get">
+                <button class="btn btn-danger btn-lg" name="logout" id="logout">KLIK UNTUK LOGOUT</button>
+            </form>
+            
+        </p>
+    </div>
+   
 </body>
 </html>
