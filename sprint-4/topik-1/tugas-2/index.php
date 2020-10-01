@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION["username"])) {
+    header("location: login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,19 +43,29 @@
                 foreach ($data_barang as $key => $value) {
                 ?>
                 <tr>
-                    <td><?= $value["id"]?></td>
+                    <td><?= $key+1?></td>
                     <td><?= $value["nama"]?></td>
                     <td><?= $value["harga"] ?></td>
                     <td><?= $value["kurir"]?></td>
                     <td><?= $value["pengirim"]?></td>
                     <td><?= $value["asal"] ?></td>
                     <td><?= $value["tujuan"]?></td>
-                    <td><a class = "btn btn-primary" href="update_barang.php?id=<?=$value["id"]?>">Edit</a> <a class = "btn btn-danger" href="barang.php?hapus=barang&id=<?=$value["id"]?>">Hapus</a></td>
+                    <td><a class = "btn btn-primary" href="update_barang.php?id=<?=$value["id"]?>">Edit</a> <a class = "btn btn-danger" href="barang.php?id=<?=$value["id"]?>">Hapus</a></td>
                 </tr>
                 <?php } ?>
             </tbody>
         </table>
     </div>
     <a href="input_barang.php" class="btn btn-dark btn-lg btn-block">INPUT BARANG</a>
+    <form action="" method="get">
+        <button class="btn btn-danger btn-lg btn-block" name="logout" id="logout">KLIK UNTUK LOGOUT</button>
+    </form>
+    <?php
+    if (isset($_GET["logout"])) {
+        session_unset();
+        session_destroy();
+        header("location: login.php");
+    }
+    ?>
 </body>
 </html>

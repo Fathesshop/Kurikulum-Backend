@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION["username"])) {
+    header("location: login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +27,7 @@
             <input type="text" name="nama_pengirim" id="nama_pengirim" placeholder="nama pengirim">
             <input type="text" name="asal_barang" id="asal_barang" placeholder="asal barang">
             <input type="text" name="tujuan_barang" id="tujuan_barang" placeholder="tujuan barang">
-            <input class="btn btn-dark" type="submit" name="submit" value="Input">
+            <input class="btn btn-dark" type="submit" name="input" value="Input">
     </form>
 </body>
 </html>
