@@ -42,6 +42,7 @@ if(!isset($_SESSION["username"])) {
                 $data_barang = $barang->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($data_barang as $key => $value) {
                 ?>
+               
                 <tr>
                     <td><?= $key+1?></td>
                     <td><?= $value["nama"]?></td>

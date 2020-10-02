@@ -1,5 +1,6 @@
 <?php
 Class DataBarang {
+    private $database;
     public function __construct()
     {
         $this->database = new PDO("mysql:host=localhost;dbname=pondokit", "dzul", "pondokit");
@@ -10,8 +11,8 @@ Class DataBarang {
         $check = $this->database->prepare($query);
         $check->execute([$username, $password]);
         $result = $check->fetchAll(PDO::FETCH_ASSOC);
-        if (count($result) > 0) {
-                $_SESSION['username'] = $result[0]['username'];
+        if (($result) > 0) {
+                $_SESSION["username"] = $result[0]["username"];
         }
     }
     public function register($username, $password)
