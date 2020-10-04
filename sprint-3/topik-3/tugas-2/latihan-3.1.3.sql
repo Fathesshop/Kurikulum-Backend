@@ -16,27 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `asrama`
+-- Table structure for table `artikel`
 --
 
-DROP TABLE IF EXISTS `asrama`;
+DROP TABLE IF EXISTS `artikel`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `asrama` (
-  `id_asrama` int NOT NULL AUTO_INCREMENT,
-  `asrama_santri` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`id_asrama`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `artikel` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `judul` varchar(100) DEFAULT NULL,
+  `label` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `asrama`
+-- Dumping data for table `artikel`
 --
 
-LOCK TABLES `asrama` WRITE;
-/*!40000 ALTER TABLE `asrama` DISABLE KEYS */;
-INSERT INTO `asrama` VALUES (1,'asrama 1'),(2,'asrama 2'),(3,'asrama 3');
-/*!40000 ALTER TABLE `asrama` ENABLE KEYS */;
+LOCK TABLES `artikel` WRITE;
+/*!40000 ALTER TABLE `artikel` DISABLE KEYS */;
+INSERT INTO `artikel` VALUES (1,'belajar php pemula','php'),(2,'belajar php pemula','mysql'),(3,'buat web pemula','html'),(4,'buat web pemula','css'),(5,'belajar mysql pemula','php'),(6,'belajar mysql pemula','mysql'),(7,'buat buat template blogspot pemula','html'),(8,'buat buat template blogspot pemula','css'),(9,'buat buat template blogspot pemula','html');
+/*!40000 ALTER TABLE `artikel` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -47,15 +48,15 @@ DROP TABLE IF EXISTS `data`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `data` (
-  `id_nama` int DEFAULT NULL,
+  `id_santri` int DEFAULT NULL,
   `id_jurusan` int DEFAULT NULL,
-  `id_asrama` int DEFAULT NULL,
-  KEY `id_nama` (`id_nama`),
+  `id_status` int DEFAULT NULL,
+  KEY `id_santri` (`id_santri`),
   KEY `id_jurusan` (`id_jurusan`),
-  KEY `id_asrama` (`id_asrama`),
-  CONSTRAINT `data_ibfk_1` FOREIGN KEY (`id_nama`) REFERENCES `nama` (`id_nama`),
-  CONSTRAINT `data_ibfk_2` FOREIGN KEY (`id_jurusan`) REFERENCES `jurusan` (`id_jurusan`),
-  CONSTRAINT `data_ibfk_3` FOREIGN KEY (`id_asrama`) REFERENCES `asrama` (`id_asrama`)
+  KEY `id_status` (`id_status`),
+  CONSTRAINT `data_ibfk_1` FOREIGN KEY (`id_santri`) REFERENCES `santri` (`id`),
+  CONSTRAINT `data_ibfk_2` FOREIGN KEY (`id_jurusan`) REFERENCES `jurusan` (`id`),
+  CONSTRAINT `data_ibfk_3` FOREIGN KEY (`id_status`) REFERENCES `status` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -65,7 +66,7 @@ CREATE TABLE `data` (
 
 LOCK TABLES `data` WRITE;
 /*!40000 ALTER TABLE `data` DISABLE KEYS */;
-INSERT INTO `data` VALUES (1,1,1),(3,1,3),(5,2,2),(4,3,2),(2,3,3);
+INSERT INTO `data` VALUES (1,2,1),(2,1,1),(3,3,1),(4,2,1),(5,3,2),(6,3,1),(7,1,4),(8,1,3),(9,3,2),(10,3,1),(11,2,3),(12,1,4),(13,3,1),(14,2,1),(15,3,4),(16,1,4),(17,1,2),(18,3,3),(19,2,1),(20,1,4);
 /*!40000 ALTER TABLE `data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,12 +78,10 @@ DROP TABLE IF EXISTS `jurusan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `jurusan` (
-  `id_jurusan` int NOT NULL AUTO_INCREMENT,
-  `jurusan_santri` varchar(10) DEFAULT NULL,
-  `id_nama` int DEFAULT NULL,
-  PRIMARY KEY (`id_jurusan`),
-  KEY `id_nama` (`id_nama`),
-  CONSTRAINT `jurusan_ibfk_1` FOREIGN KEY (`id_nama`) REFERENCES `nama` (`id_nama`)
+  `id` int NOT NULL AUTO_INCREMENT,
+  `jurusan` varchar(50) DEFAULT NULL,
+  `pengajar` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -92,35 +91,58 @@ CREATE TABLE `jurusan` (
 
 LOCK TABLES `jurusan` WRITE;
 /*!40000 ALTER TABLE `jurusan` DISABLE KEYS */;
-INSERT INTO `jurusan` VALUES (1,'backend',1),(2,'frontend',5),(3,'mobile',2);
+INSERT INTO `jurusan` VALUES (1,'backend','shofyan'),(2,'frontend','zuhad'),(3,'mobile','hanif');
 /*!40000 ALTER TABLE `jurusan` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `nama`
+-- Table structure for table `santri`
 --
 
-DROP TABLE IF EXISTS `nama`;
+DROP TABLE IF EXISTS `santri`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `nama` (
-  `id_nama` int NOT NULL AUTO_INCREMENT,
-  `nama_santri` varchar(50) DEFAULT NULL,
-  `id_jurusan` int DEFAULT NULL,
-  PRIMARY KEY (`id_nama`),
-  KEY `id_jurusan` (`id_jurusan`),
-  CONSTRAINT `nama_ibfk_1` FOREIGN KEY (`id_jurusan`) REFERENCES `jurusan` (`id_jurusan`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `santri` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(100) DEFAULT NULL,
+  `nilai` varchar(3) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `nama`
+-- Dumping data for table `santri`
 --
 
-LOCK TABLES `nama` WRITE;
-/*!40000 ALTER TABLE `nama` DISABLE KEYS */;
-INSERT INTO `nama` VALUES (1,'dzulmaarij',1),(2,'fauzil',3),(3,'ridho',1),(4,'fathesshop',3),(5,'fathullah',2);
-/*!40000 ALTER TABLE `nama` ENABLE KEYS */;
+LOCK TABLES `santri` WRITE;
+/*!40000 ALTER TABLE `santri` DISABLE KEYS */;
+INSERT INTO `santri` VALUES (1,'Muhammad','80'),(2,'Fathesshop','85'),(3,'Dzul','95'),(4,'Maarij','90'),(5,'Rizqi','70'),(6,'Fathullah','80'),(7,'Fadil','50'),(8,'Ridho','60'),(9,'Husain','75'),(10,'Nasrullah','85'),(11,'Alghifari','65'),(12,'Fauzil','55'),(13,'Azim','95'),(14,'Iqbal','80'),(15,'Imaduddin','40'),(16,'Ahmad','55'),(17,'Ahsan','70'),(18,'Ilahaka','65'),(19,'Rahmat','85'),(20,'Bagus','55'),(21,'mas shofyan','100');
+/*!40000 ALTER TABLE `santri` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `status`
+--
+
+DROP TABLE IF EXISTS `status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `status` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `status` varchar(50) DEFAULT NULL,
+  `keterangan` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `status`
+--
+
+LOCK TABLES `status` WRITE;
+/*!40000 ALTER TABLE `status` DISABLE KEYS */;
+INSERT INTO `status` VALUES (1,'hijau','nilai sangat baik'),(2,'biru','nilai cukup'),(3,'kuning','nilai kurang'),(4,'merah','nilai sangat kurang');
+/*!40000 ALTER TABLE `status` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -132,4 +154,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-24  9:38:51
+-- Dump completed on 2020-10-05  6:10:05
