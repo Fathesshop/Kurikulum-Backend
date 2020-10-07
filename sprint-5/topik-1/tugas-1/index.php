@@ -4,12 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bangun Ruang</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
-
-<body>
-    <div class="container">
+<div class="fixed-top">
+  <div class="collapse" id="navbarToggleExternalContent" >
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Autoloader PHP</h5>
+      <span class="text-muted">Program class bangun datar (lingkaran, segitiga, dan persegi) dengan memanfaatkan autoloader tanpa composer.</span>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <img src="img/pondok.svg" class="d-inline-block align-top" alt="" loading="lazy">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+<body background="img/bg.png">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-sm">
             <div class="btn btn-dark btn-lg btn-block mt-5">MENGHITUNG LINGKARAN</div>
@@ -56,64 +69,65 @@
         </div>
     </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-</html>
-<?php
-function __autoload($class)
-{
-    require_once($class . ".php");
-}
-if (isset($_POST["bulat"])) {
-    $bulat = new bulat();
-    $phi = $_POST["phi"];
-    $jari = $_POST["jari"];
-    $keliling_bulat = $bulat->keliling($phi, $jari);
-    $luas_bulat = $bulat->luas($phi, $jari);
-?>
-    <div class="card text-white bg-dark mb-3 text-center mt-5">
-        <h1><div class="card-header">HITUNG LINGKARAN</div></h1 >
-        <div class="card-body">
-            <h5 class="card-title">Hasil keliling dan luas lingkaran</h5>
-            <p class="card-text"><?= "keliling = " . $keliling_bulat . "cm"; ?></p>
-            <p class="card-text"><?= "luas = " . $luas_bulat . "cm"; ?></p>
-        </div>
-    </div>
-<?php
-} elseif (isset($_POST["persegi"])) {
-    $persegi = new persegi();
-    $panjang = $_POST["panjang"];
-    $lebar = $_POST["lebar"];
-    $keliling_persegi = $persegi->keliling($panjang,$lebar);
-    $luas_persegi = $persegi->luas($panjang,$lebar);
-?>
-    <div class="card text-white bg-dark mb-3 text-center mt-5">
-        <h1><div class="card-header">HITUNG PERSEGI</div></h1 >
-        <div class="card-body">
-            <h5 class="card-title">Hasil keliling dan luas persegi</h5>
-            <p class="card-text"><?= "keliling = " . $keliling_persegi . "cm"; ?></p>
-            <p class="card-text"><?= "luas = " . $luas_persegi . "cm"; ?></p>
-        </div>
-    </div>
-<?php
-} elseif (isset($_POST["segitiga"])) {
-    $segitiga = new segitiga();
-    $alas = $_POST["alas"];
-    $tinggi = $_POST["tinggi"];
-    $keliling_segitiga = $segitiga->keliling($alas);
-    $luas_segitiga = $segitiga->luas($alas,$tinggi);
+<footer>
+    <?php
+    function __autoload($class)
+    {
+        require_once($class . ".php");
+    }
+    if (isset($_POST["bulat"])) {
+        $bulat = new bulat();
+        $phi = $_POST["phi"];
+        $jari = $_POST["jari"];
+        $keliling_bulat = $bulat->keliling($phi, $jari);
+        $luas_bulat = $bulat->luas($phi, $jari);
     ?>
-    <div class="card text-white bg-dark mb-3 text-center mt-5">
-        <h1><div class="card-header">HITUNG SEGITIGA</div></h1 >
-        <div class="card-body">
-            <h5 class="card-title">Hasil keliling dan luas segitiga</h5>
-            <p class="card-text"><?= "keliling = " . $keliling_segitiga . "cm"; ?></p>
-            <p class="card-text"><?= "luas = " . $luas_segitiga . "cm"; ?></p>
+        <div class="card text-white bg-dark mb-3 text-center mt-5">
+            <h1><div class="card-header">HITUNG LINGKARAN</div></h1 >
+            <div class="card-body">
+                <h5 class="card-title">Hasil keliling dan luas lingkaran</h5>
+                <p class="card-text"><?= "keliling = " . $keliling_bulat . "cm"; ?></p>
+                <p class="card-text"><?= "luas = " . $luas_bulat . "cm"; ?></p>
+            </div>
         </div>
-    </div>
-<?php
-}
+    <?php
+    } elseif (isset($_POST["persegi"])) {
+        $persegi = new persegi();
+        $panjang = $_POST["panjang"];
+        $lebar = $_POST["lebar"];
+        $keliling_persegi = $persegi->keliling($panjang,$lebar);
+        $luas_persegi = $persegi->luas($panjang,$lebar);
+    ?>
+        <div class="card text-white bg-dark mb-3 text-center mt-5">
+            <h1><div class="card-header">HITUNG PERSEGI</div></h1 >
+            <div class="card-body">
+                <h5 class="card-title">Hasil keliling dan luas persegi</h5>
+                <p class="card-text"><?= "keliling = " . $keliling_persegi . "cm"; ?></p>
+                <p class="card-text"><?= "luas = " . $luas_persegi . "cm"; ?></p>
+            </div>
+        </div>
+    <?php
+    } elseif (isset($_POST["segitiga"])) {
+        $segitiga = new segitiga();
+        $alas = $_POST["alas"];
+        $tinggi = $_POST["tinggi"];
+        $keliling_segitiga = $segitiga->keliling($alas);
+        $luas_segitiga = $segitiga->luas($alas,$tinggi);
+        ?>
+        <div class="card text-white bg-dark mb-3 text-center mt-5">
+            <h1><div class="card-header">HITUNG SEGITIGA</div></h1 >
+            <div class="card-body">
+                <h5 class="card-title">Hasil keliling dan luas segitiga</h5>
+                <p class="card-text"><?= "keliling = " . $keliling_segitiga . "cm"; ?></p>
+                <p class="card-text"><?= "luas = " . $luas_segitiga . "cm"; ?></p>
+            </div>
+        </div>
+    <?php
+    }
 
-?>
+    ?>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</footer>
+</html>
