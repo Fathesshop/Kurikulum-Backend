@@ -21,7 +21,7 @@
     </button>
   </nav>
 </div>
-<body background="img/bg.png">
+<body>
     <div class="container mt-5">
         <div class="row">
             <div class="col-sm">
@@ -71,9 +71,9 @@
 </body>
 <footer>
     <?php
-    use Src\bulat;
-    use Src\persegi;
-    use Src\segitiga;
+    use bangun\bulat;
+    use bangun\persegi;
+    use bangun\segitiga;
     require_once __DIR__ . '/vendor/autoload.php';
     
     if (isset($_POST["bulat"])) {

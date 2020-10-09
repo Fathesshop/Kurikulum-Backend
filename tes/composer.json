@@ -1,0 +1,16 @@
+{
+    "name": "dzul/tugas-1",
+    "description": "Dzul",
+    "authors": [
+        {
+            "name": "Fathesshop",
+            "email": "fathesshop@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ruang\\" : "bangun/"
+        }
+    }
+}
