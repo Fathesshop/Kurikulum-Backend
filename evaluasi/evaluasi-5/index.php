@@ -14,8 +14,7 @@ $res = $client->request('POST', 'https://api.pondokprogrammer.com/api/student_lo
 // 'application/json; charset=utf8'
 // $data = $res->getBody();
 
-// $response = (string) $res->getBody();
-// $response =json_decode($response); // Using this you can access any key like below
+// Using this you can access any key like below
 
 // $key_value = $response->key_name; //access key  
 
@@ -23,3 +22,9 @@ $response = json_decode($res->getBody(),true);
 $key_value =   $response['token'];//access key
 echo "$key_value";
 
+
+$res = $client->request('POST', 'https://api.pondokprogrammer.com/api/class/qr?class_id=85', [
+    'headers' => [
+        'Authorization' => 'bearer '.$key_value
+        ]
+]);
