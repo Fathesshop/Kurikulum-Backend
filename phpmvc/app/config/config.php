@@ -1,6 +1,6 @@
 <?php
 
-define('BASEURL', 'http://localhost/phpmvc/public');
+define('BASEURL', 'http://localhost/kurikulum-backend/phpmvc/public');
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'dzul');
