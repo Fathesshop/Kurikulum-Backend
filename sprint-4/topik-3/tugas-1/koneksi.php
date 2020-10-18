@@ -2,7 +2,7 @@
 Class DataBarang {
     public function __construct()
     {
-        $this->database = new PDO("mysql:host=localhost;dbname=pondokit", "dzul", "pondokit");
+        $this->database = new PDO("mysql:host=localhost;dbname=user", "dzul", "pondokit");
     }
     public function login($username, $password)
     {
