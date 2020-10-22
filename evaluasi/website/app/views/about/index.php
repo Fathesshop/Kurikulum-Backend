@@ -24,7 +24,7 @@
         <div class="row mb-4">
             <div class="col-lg-5">
                 <h2 class="display-4 font-weight-light">Kontributor</h2>
-                <p class="font-italic text-muted">dibawah ini orang orang yang telah berkontribusi untuk website ini.</p>
+                <p class="font-italic text-muted">dibawah ini orang orang yang berkontribusi untuk website ini.</p>
             </div>
         </div>
 
