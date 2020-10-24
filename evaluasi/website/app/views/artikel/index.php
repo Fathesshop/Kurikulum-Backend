@@ -1,10 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-8">
-            <div class="thumbnail">
-                <br class="mb-4">
-                <div class="card shadow-lg">
-                    <div class="card-body">
+        <div class="col-sm-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?= BASEURL; ?>">Home</a></li>
@@ -12,6 +8,10 @@
                                 <li class="breadcrumb-item"><?= $data['artikel']['judul']; ?></li>
                             </ol>
                         </nav>
+            <div class="thumbnail">
+                <br class="mb-4">
+                <div class="card shadow-lg">
+                    <div class="card-body">
                         <div class="panel panel-default">
                             <div class="panel-heading post-thumb">
                                 <img class="img-thumbnail" src="<?= BASEURL; ?>/img/<?= $data['artikel']['gambar']; ?>" width="100%" />
